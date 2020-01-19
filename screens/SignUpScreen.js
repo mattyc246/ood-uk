@@ -1,13 +1,14 @@
 import React from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
-import { Container, Content, H1, Button, Text } from "native-base";
+import { Container, Content, Button, Text } from "native-base";
 import SignUpForm from "../components/SignUpForm";
+import PageHeader from "../components/PageHeader";
 
 const SignUpPage = () => {
   return (
     <Container style={styles.container}>
+      <PageHeader title="Sign Up" />
       <Content contentContainerStyle={styles.content}>
-        <H1>Sign Up</H1>
         <SignUpForm />
         <View style={styles.buttonContainer}>
           <Button transparent style={styles.button} block>
@@ -27,9 +28,6 @@ const SignUpPage = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "rgb(145, 208, 91)"
   },
   content: {
