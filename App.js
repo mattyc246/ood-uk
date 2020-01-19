@@ -3,7 +3,7 @@ import { SafeAreaView, AsyncStorage } from "react-native";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
-import AuthenticationScreen from "./screens/AuthenticationScreen";
+import SignUpScreen from "./screens/SignUpScreen";
 
 const App = () => {
   const [isReady, setIsReady] = useState(false);
@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.safeView}>
-      <AuthenticationScreen />
+      <SignUpScreen />
     </SafeAreaView>
   );
 };
