@@ -16,30 +16,29 @@ import {
 
 const HomeScreen = () => {
   return (
-    <Container>
-      <Header>
+    <Container style={styles.container}>
+      <Header transparent>
         <Left>
           <Button transparent>
             <Icon name="menu" />
           </Button>
         </Left>
         <Body>
-          <Title>Header</Title>
+          <Title>Home Screen</Title>
         </Body>
         <Right />
       </Header>
       <Content>
-        <Text>This is Content Section</Text>
+        <Text>Home</Text>
       </Content>
-      <Footer>
-        <FooterTab>
-          <Button full>
-            <Text>Footer</Text>
-          </Button>
-        </FooterTab>
-      </Footer>
     </Container>
   );
+};
+
+const styles = {
+  container: {
+    backgroundColor: "rgb(145, 208, 91)"
+  }
 };
 
 export default HomeScreen;

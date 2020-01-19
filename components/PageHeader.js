@@ -4,7 +4,7 @@ import { Header, Left, Right, Body, Title, Button, Icon } from "native-base";
 
 const PageHeader = ({ navigation, title }) => {
   return (
-    <Header style={styles.header}>
+    <Header transparent>
       <Left>
         <Button onPress={() => navigation.goBack()} transparent>
           <Icon name="arrow-back" />
