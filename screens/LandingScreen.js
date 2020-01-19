@@ -1,17 +1,27 @@
 import React from "react";
 import { Dimensions, View } from "react-native";
-import { Container, Content, Button, Text } from "native-base";
+import { Container, Content, Button, Text, H1 } from "native-base";
+import { withNavigation } from "react-navigation";
 
-const LandingScreen = () => {
+const LandingScreen = ({ navigation }) => {
   return (
     <Container style={styles.container}>
       <Content padder contentContainerStyle={styles.content}>
-        <Text>OOD Grocery</Text>
+        <H1>OOD Grocery</H1>
         <View style={styles.buttonContainer}>
-          <Button block style={styles.button}>
+          <Button
+            onPress={() => navigation.push("LoginScreen")}
+            block
+            style={styles.button}
+          >
             <Text>Login</Text>
           </Button>
-          <Button block style={styles.button} light>
+          <Button
+            onPress={() => navigation.push("SignUpScreen")}
+            block
+            style={styles.button}
+            light
+          >
             <Text>Sign Up</Text>
           </Button>
         </View>
@@ -42,4 +52,4 @@ const styles = {
   }
 };
 
-export default LandingScreen;
+export default withNavigation(LandingScreen);

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, AsyncStorage } from "react-native";
+import { View, AsyncStorage } from "react-native";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
-import SignUpScreen from "./screens/SignUpScreen";
+import HomeScreen from "./screens/HomeScreen";
+import AuthNavigator from "./navigation/AuthNavigator";
 
 const App = () => {
   const [isReady, setIsReady] = useState(false);
+  const [hasUser, setHasUser] = useState(false);
 
   useEffect(() => {
     Font.loadAsync({
@@ -15,6 +17,11 @@ const App = () => {
       ...Ionicons.font
     });
     setIsReady(true);
+    AsyncStorage.getItem("user").then(user => {
+      if (user) {
+        setHasUser(true);
+      }
+    });
   }, []);
 
   if (!isReady) {
@@ -22,9 +29,9 @@ const App = () => {
   }
 
   return (
-    <SafeAreaView style={styles.safeView}>
-      <SignUpScreen />
-    </SafeAreaView>
+    <View style={styles.safeView}>
+      {hasUser ? <HomeScreen /> : <AuthNavigator />}
+    </View>
   );
 };
 

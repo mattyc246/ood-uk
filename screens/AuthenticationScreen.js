@@ -1,13 +1,15 @@
 import React from "react";
 import { Dimensions, View, StyleSheet } from "react-native";
-import { Container, Content, Text, Button, Icon, H1 } from "native-base";
+import { Container, Content, Text, Button, Icon } from "native-base";
 import LoginForm from "../components/LoginForm";
+import { withNavigation } from "react-navigation";
+import PageHeader from "../components/PageHeader";
 
-const AuthenticationScreen = () => {
+const AuthenticationScreen = ({ navigation }) => {
   return (
     <Container style={styles.container}>
+      <PageHeader title="Login" />
       <Content contentContainerStyle={styles.content}>
-        <H1>Authentication</H1>
         <LoginForm />
         <View>
           <Button block style={styles.button}>
@@ -28,14 +30,11 @@ const AuthenticationScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "rgb(145, 208, 91)"
   },
   content: {
     flex: 1,
-    justifyContent: "space-around",
+    justifyContent: "space-evenly",
     alignItems: "center",
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height
@@ -49,4 +48,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AuthenticationScreen;
+export default withNavigation(AuthenticationScreen);
