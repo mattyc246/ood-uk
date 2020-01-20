@@ -14,7 +14,7 @@ import {
   Text
 } from "native-base";
 
-const HomeScreen = () => {
+const CartScreen = () => {
   return (
     <Container style={styles.container}>
       <Header transparent>
@@ -24,12 +24,12 @@ const HomeScreen = () => {
           </Button>
         </Left>
         <Body>
-          <Title>Home Screen</Title>
+          <Title>Cart Screen</Title>
         </Body>
         <Right />
       </Header>
       <Content>
-        <Text>Home</Text>
+        <Text>Cart</Text>
       </Content>
     </Container>
   );
@@ -41,4 +41,4 @@ const styles = {
   }
 };
 
-export default HomeScreen;
+export default CartScreen;

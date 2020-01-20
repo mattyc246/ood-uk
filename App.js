@@ -8,7 +8,7 @@ import AuthNavigator from "./navigation/AuthNavigator";
 
 const App = () => {
   const [isReady, setIsReady] = useState(false);
-  const [hasUser, setHasUser] = useState(false);
+  const [hasUser, setHasUser] = useState(true);
 
   useEffect(() => {
     Font.loadAsync({
