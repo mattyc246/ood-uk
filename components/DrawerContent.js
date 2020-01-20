@@ -9,8 +9,10 @@ import {
   List,
   ListItem
 } from "native-base";
+import useStores from "../hooks/useStores";
 
 const DrawerContent = ({ navigation }) => {
+  const { currentUser } = useStores();
   return (
     <Container style={styles.container}>
       <Content contentContainerStyle={styles.content}>
@@ -54,7 +56,7 @@ const DrawerContent = ({ navigation }) => {
             </Button>
           </ListItem>
         </List>
-        <Button full danger>
+        <Button onPress={() => currentUser.logOutUser()} full danger>
           <Text>Logout</Text>
         </Button>
       </Content>
