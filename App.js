@@ -3,6 +3,8 @@ import { View, AsyncStorage } from "react-native";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
+import { Provider } from "mobx-react";
+import currentUser from "./stores/UserStore";
 import MainNavigator from "./navigation/MainNavigator";
 import AuthNavigator from "./navigation/AuthNavigator";
 
@@ -29,9 +31,11 @@ const App = () => {
   }
 
   return (
-    <View style={styles.safeView}>
-      {hasUser ? <MainNavigator /> : <AuthNavigator />}
-    </View>
+    <Provider userStore={userStore}>
+      <View style={styles.safeView}>
+        {hasUser ? <MainNavigator /> : <AuthNavigator />}
+      </View>
+    </Provider>
   );
 };
 
