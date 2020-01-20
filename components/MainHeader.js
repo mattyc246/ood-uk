@@ -23,7 +23,10 @@ const MainHeader = ({ navigation, height, showBack, showCart, title }) => {
       </Body>
       {showCart ? (
         <Right>
-          <Button transparent>
+          <Button
+            onPress={() => navigation.navigate("ShoppingCartScreen")}
+            transparent
+          >
             <Icon name="cart" />
           </Button>
         </Right>

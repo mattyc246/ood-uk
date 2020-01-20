@@ -1,34 +1,17 @@
 import React from "react";
-import {
-  Container,
-  Header,
-  Title,
-  Content,
-  Footer,
-  FooterTab,
-  Button,
-  Left,
-  Right,
-  Body,
-  Icon,
-  Text
-} from "native-base";
+import { Container, Content, Text } from "native-base";
+import MainHeader from "../components/MainHeader";
 
 const CartScreen = () => {
   return (
     <Container style={styles.container}>
-      <Header transparent>
-        <Left>
-          <Button transparent>
-            <Icon name="menu" />
-          </Button>
-        </Left>
-        <Body>
-          <Title>Cart Screen</Title>
-        </Body>
-        <Right />
-      </Header>
-      <Content>
+      <MainHeader
+        height={75}
+        showCart={false}
+        showBack={true}
+        title="Shopping Cart"
+      />
+      <Content contentContainerStyle={styles.content}>
         <Text>Cart</Text>
       </Content>
     </Container>
@@ -38,6 +21,12 @@ const CartScreen = () => {
 const styles = {
   container: {
     backgroundColor: "rgb(145, 208, 91)"
+  },
+  content: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white"
   }
 };
 
