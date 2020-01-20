@@ -3,7 +3,7 @@ import { View, AsyncStorage } from "react-native";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
-import HomeScreen from "./screens/HomeScreen";
+import MainNavigator from "./navigation/MainNavigator";
 import AuthNavigator from "./navigation/AuthNavigator";
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
 
   return (
     <View style={styles.safeView}>
-      {hasUser ? <HomeScreen /> : <AuthNavigator />}
+      {hasUser ? <MainNavigator /> : <AuthNavigator />}
     </View>
   );
 };
