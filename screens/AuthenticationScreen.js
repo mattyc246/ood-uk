@@ -1,18 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import useStores from "../hooks/useStores";
 import { Dimensions, View, StyleSheet } from "react-native";
 import { Container, Content, Text, Button, Icon } from "native-base";
 import LoginForm from "../components/LoginForm";
 import { withNavigation } from "react-navigation";
 import PageHeader from "../components/PageHeader";
+import { observer } from "mobx-react";
 
 const AuthenticationScreen = ({ navigation }) => {
+  const { currentUser } = useStores();
+  const [usernameInput, setUsernameInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+  const loginUser = (username, password) => {
+    // console.log(currentUser.logInUser());
+    currentUser.logInUser(username, password);
+  };
+
   return (
     <Container style={styles.container}>
       <PageHeader title="Login" />
       <Content contentContainerStyle={styles.content}>
-        <LoginForm />
+        <LoginForm
+          username={usernameInput}
+          password={passwordInput}
+          setUsername={setUsernameInput}
+          setPassword={setPasswordInput}
+        />
         <View>
-          <Button block style={styles.button}>
+          <Button
+            onPress={() => loginUser(usernameInput, passwordInput)}
+            block
+            style={styles.button}
+          >
             <Text>Login</Text>
           </Button>
           <View>
@@ -48,4 +67,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withNavigation(AuthenticationScreen);
+export default observer(withNavigation(AuthenticationScreen));

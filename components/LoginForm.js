@@ -2,16 +2,26 @@ import React from "react";
 import { Dimensions } from "react-native";
 import { Form, Item, Input, Icon } from "native-base";
 
-const LoginForm = () => {
+const LoginForm = ({ username, password, setUsername, setPassword }) => {
   return (
     <Form style={styles.form}>
       <Item style={styles.input}>
         <Icon active type="FontAwesome5" name="user" />
-        <Input placeholder="Username" />
+        <Input
+          value={username}
+          onChangeText={e => setUsername(e)}
+          placeholder="Username"
+        />
       </Item>
       <Item style={styles.input}>
         <Icon active type="FontAwesome5" name="lock" />
-        <Input secureTextEntry={true} type="password" placeholder="Password" />
+        <Input
+          value={password}
+          onChangeText={e => setPassword(e)}
+          secureTextEntry={true}
+          type="password"
+          placeholder="Password"
+        />
       </Item>
     </Form>
   );
