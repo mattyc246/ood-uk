@@ -1,33 +1,11 @@
 import React from "react";
-import {
-  Container,
-  Header,
-  Title,
-  Content,
-  Footer,
-  FooterTab,
-  Button,
-  Left,
-  Right,
-  Body,
-  Icon,
-  Text
-} from "native-base";
+import { Container, Content, Text } from "native-base";
+import MainHeader from "../components/MainHeader";
 
 const OrderScreen = () => {
   return (
     <Container style={styles.container}>
-      <Header transparent>
-        <Left>
-          <Button transparent>
-            <Icon name="menu" />
-          </Button>
-        </Left>
-        <Body>
-          <Title>Order Screen</Title>
-        </Body>
-        <Right />
-      </Header>
+      <MainHeader />
       <Content>
         <Text>Order</Text>
       </Content>
