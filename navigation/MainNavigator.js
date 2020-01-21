@@ -19,9 +19,9 @@ const MainNavigator = createDrawerNavigator(
   {
     initialRouteName: "MainScreen",
     headerMode: "none",
-    contentComponent: ({ navigation }) => (
-      <DrawerContent navigation={navigation} />
-    ),
+    contentComponent: ({ navigation }) => {
+      return <DrawerContent navigation={navigation} />;
+    },
     drawerWidth: "75%"
   }
 );

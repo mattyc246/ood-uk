@@ -1,61 +1,63 @@
 import React from "react";
-import {
-  Container,
-  Content,
-  Text,
-  Button,
-  View,
-  H1,
-  List,
-  ListItem
-} from "native-base";
+import { Container, Content, Text, Button, View, H1, H3 } from "native-base";
+import { observer } from "mobx-react";
 import useStores from "../hooks/useStores";
 
 const DrawerContent = ({ navigation }) => {
   const { currentUser } = useStores();
+  const menuButtons = [
+    {
+      screen: "MainScreen",
+      text: "Home"
+    },
+    {
+      screen: "OrderScreen",
+      text: "Current Orders"
+    },
+    {
+      screen: "OrderHistoryScreen",
+      text: "Order History"
+    },
+    {
+      screen: "FavoritesScreen",
+      text: "Favorites"
+    },
+    {
+      screen: "RecipesScreen",
+      text: "Recipes"
+    }
+  ];
   return (
     <Container style={styles.container}>
       <Content contentContainerStyle={styles.content}>
         <View style={styles.upperBox}>
           <H1>Welcome Back!</H1>
+          <H3>
+            {currentUser.firstName} {currentUser.lastName}
+          </H3>
         </View>
-        <List style={styles.list}>
-          <ListItem style={styles.listItem}>
-            <Button
-              onPress={() => navigation.navigate("MainScreen")}
-              full
-              light
-              style={styles.menuButton}
-            >
-              <Text>Home</Text>
-            </Button>
-          </ListItem>
-          <ListItem style={styles.listItem}>
-            <Button
-              onPress={() => navigation.navigate("OrderScreen")}
-              full
-              light
-              style={styles.menuButton}
-            >
-              <Text>My Orders</Text>
-            </Button>
-          </ListItem>
-          <ListItem style={styles.listItem}>
-            <Button full light style={styles.menuButton}>
-              <Text>Something</Text>
-            </Button>
-          </ListItem>
-          <ListItem style={styles.listItem}>
-            <Button full light style={styles.menuButton}>
-              <Text>Something</Text>
-            </Button>
-          </ListItem>
-          <ListItem style={styles.listItem}>
-            <Button full light style={styles.menuButton}>
-              <Text>Something</Text>
-            </Button>
-          </ListItem>
-        </List>
+        <View style={styles.buttonContainer}>
+          {menuButtons.map((button, index) => {
+            return (
+              <Button
+                key={index}
+                onPress={() => navigation.navigate(button.screen)}
+                full
+                light
+                style={styles.menuButton}
+              >
+                <View
+                  style={
+                    index == navigation.state.index
+                      ? styles.activeBar
+                      : styles.homeBar
+                  }
+                />
+                <Text style={styles.flexText}>{button.text}</Text>
+              </Button>
+            );
+          })}
+        </View>
         <Button onPress={() => currentUser.logOutUser()} full danger>
           <Text>Logout</Text>
         </Button>
@@ -80,16 +82,32 @@ const styles = {
     width: "100%",
     backgroundColor: "white"
   },
-  list: {
-    width: "100%"
+  buttonContainer: {
+    width: "100%",
+    paddingRight: "5%"
   },
   menuButton: {
-    width: "100%"
-  },
-  listItem: {
     width: "100%",
-    marginLeft: 0
+    marginTop: 15,
+    height: 60,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderRadius: 15
+  },
+  homeBar: {
+    height: "100%",
+    width: 15,
+    backgroundColor: "lightblue"
+  },
+  activeBar: {
+    height: "100%",
+    width: 15,
+    backgroundColor: "tomato"
+  },
+  flexText: {
+    flex: 1,
+    textAlign: "center"
   }
 };
 
-export default DrawerContent;
+export default observer(DrawerContent);

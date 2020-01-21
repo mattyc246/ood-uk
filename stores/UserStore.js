@@ -38,9 +38,9 @@ class UserStore {
     AsyncStorage.getItem("user").then(user => {
       if (user) {
         let logUser = JSON.parse(user);
-        this.firstName = user.firstName;
-        this.lastName = user.lastName;
-        this.email = user.email;
+        this.firstName = logUser.firstName;
+        this.lastName = logUser.lastName;
+        this.email = logUser.email;
         this.isLoggedIn = true;
         return true;
       } else {
