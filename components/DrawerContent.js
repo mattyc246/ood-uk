@@ -5,7 +5,6 @@ import useStores from "../hooks/useStores";
 
 const DrawerContent = ({ navigation }) => {
   const { currentUser } = useStores();
-  console.log(navigation);
   const menuButtons = [
     {
       screen: "MainScreen",
