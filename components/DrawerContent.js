@@ -5,7 +5,29 @@ import useStores from "../hooks/useStores";
 
 const DrawerContent = ({ navigation }) => {
   const { currentUser } = useStores();
-  console.log(navigation.activeItemKey);
+  console.log(navigation);
+  const menuButtons = [
+    {
+      screen: "MainScreen",
+      text: "Home"
+    },
+    {
+      screen: "OrderScreen",
+      text: "Current Orders"
+    },
+    {
+      screen: "OrderHistoryScreen",
+      text: "Order History"
+    },
+    {
+      screen: "FavoritesScreen",
+      text: "Favorites"
+    },
+    {
+      screen: "RecipesScreen",
+      text: "Recipes"
+    }
+  ];
   return (
     <Container style={styles.container}>
       <Content contentContainerStyle={styles.content}>
@@ -16,40 +38,26 @@ const DrawerContent = ({ navigation }) => {
           </H3>
         </View>
         <View style={styles.buttonContainer}>
-          <Button
-            onPress={() => navigation.navigate("MainScreen")}
-            full
-            light
-            style={styles.menuButton}
-          >
-            <View style={styles.homeBar} />
-            <Text style={styles.flexText}>Home</Text>
-          </Button>
-
-          <Button
-            onPress={() => navigation.navigate("OrderScreen")}
-            full
-            light
-            style={styles.menuButton}
-          >
-            <View style={styles.homeBar} />
-            <Text style={styles.flexText}>Current Orders</Text>
-          </Button>
-
-          <Button full light style={styles.menuButton}>
-            <View style={styles.homeBar} />
-            <Text style={styles.flexText}>Order History</Text>
-          </Button>
-
-          <Button full light style={styles.menuButton}>
-            <View style={styles.homeBar} />
-            <Text style={styles.flexText}>Favorites</Text>
-          </Button>
-
-          <Button full light style={styles.menuButton}>
-            <View style={styles.homeBar} />
-            <Text style={styles.flexText}>Recipes</Text>
-          </Button>
+          {menuButtons.map((button, index) => {
+            return (
+              <Button
+                key={index}
+                onPress={() => navigation.navigate(button.screen)}
+                full
+                light
+                style={styles.menuButton}
+              >
+                <View
+                  style={
+                    index == navigation.state.index
+                      ? styles.activeBar
+                      : styles.homeBar
+                  }
+                />
+                <Text style={styles.flexText}>{button.text}</Text>
+              </Button>
+            );
+          })}
         </View>
         <Button onPress={() => currentUser.logOutUser()} full danger>
           <Text>Logout</Text>
