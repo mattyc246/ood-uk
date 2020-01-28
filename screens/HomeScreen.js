@@ -11,6 +11,7 @@ import {
   Button
 } from "native-base";
 import MainHeader from "../components/MainHeader";
+import ProductScroll from "../components/ProductScroll";
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -33,6 +34,7 @@ const HomeScreen = ({ navigation }) => {
         >
           <Text>Your Recently Purchased Items</Text>
         </Button>
+        <ProductScroll />
       </Content>
     </Container>
   );
@@ -43,7 +45,6 @@ const styles = {
     backgroundColor: "rgb(145, 208, 91)"
   },
   content: {
-    flex: 1,
     alignItems: "center",
     backgroundColor: "white"
   },
