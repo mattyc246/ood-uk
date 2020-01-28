@@ -7,7 +7,8 @@ import {
   Item,
   Input,
   Icon,
-  H1
+  H1,
+  Button
 } from "native-base";
 import MainHeader from "../components/MainHeader";
 
@@ -24,7 +25,14 @@ const HomeScreen = ({ navigation }) => {
             <Icon active name="search" />
           </Item>
         </View>
-        <Text>Home</Text>
+        <Button
+          onPress={() => navigation.navigate("OrderScreen")}
+          small
+          warning
+          style={styles.recentButton}
+        >
+          <Text>Your Recently Purchased Items</Text>
+        </Button>
       </Content>
     </Container>
   );
@@ -55,6 +63,13 @@ const styles = {
     width: "90%",
     marginTop: 10,
     borderRadius: 10
+  },
+  recentButton: {
+    width: "60%",
+    marginRight: "auto",
+    borderRadius: 0,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10
   }
 };
 
