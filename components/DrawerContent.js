@@ -2,35 +2,11 @@ import React from "react";
 import { Container, Content, Text, Button, View, H1, H3 } from "native-base";
 import { observer } from "mobx-react";
 import useStores from "../hooks/useStores";
+import { menuButtons } from "../constants/MenuButtons";
+s;
 
 const DrawerContent = ({ navigation }) => {
   const { currentUser } = useStores();
-  const menuButtons = [
-    {
-      screen: "MainScreen",
-      text: "Home"
-    },
-    {
-      screen: "ProductScreen",
-      text: "Products"
-    },
-    {
-      screen: "OrderScreen",
-      text: "Current Orders"
-    },
-    {
-      screen: "OrderHistoryScreen",
-      text: "Order History"
-    },
-    {
-      screen: "FavoritesScreen",
-      text: "Favorites"
-    },
-    {
-      screen: "RecipesScreen",
-      text: "Recipes"
-    }
-  ];
   return (
     <Container style={styles.container}>
       <Content contentContainerStyle={styles.content}>

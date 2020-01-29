@@ -5,6 +5,7 @@ import OrderView from "../screens/OrderScreen";
 import CartScreen from "../screens/ShoppingCartScreen";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import DrawerContent from "../components/DrawerContent";
+import CategoriesScreen from "../screens/CategoriesScreen";
 
 const MainNavigator = createDrawerNavigator(
   {
@@ -13,6 +14,7 @@ const MainNavigator = createDrawerNavigator(
         <HomeScreen {...screenProps} navigation={navigation} />
       )
     },
+    CategoriesScreen: CategoriesScreen,
     OrderScreen: OrderView,
     ShoppingCartScreen: CartScreen
   },
