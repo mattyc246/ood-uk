@@ -11,6 +11,10 @@ const DrawerContent = ({ navigation }) => {
       text: "Home"
     },
     {
+      screen: "ProductScreen",
+      text: "Products"
+    },
+    {
       screen: "OrderScreen",
       text: "Current Orders"
     },
@@ -89,7 +93,7 @@ const styles = {
   menuButton: {
     width: "100%",
     marginTop: 15,
-    height: 60,
+    height: 40,
     paddingTop: 0,
     paddingBottom: 0,
     borderRadius: 15
