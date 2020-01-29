@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Container } from "native-base";
+import { View, Text, Container, Content } from "native-base";
 import MainHeader from "../components/MainHeader";
 
 const CategoriesScreen = () => {
@@ -11,9 +11,9 @@ const CategoriesScreen = () => {
         showCart={true}
         title="Products"
       />
-      <View>
+      <Content contentContainerStyle={styles.content}>
         <Text>Hello World</Text>
-      </View>
+      </Content>
     </Container>
   );
 };
@@ -21,6 +21,15 @@ const CategoriesScreen = () => {
 const styles = {
   container: {
     backgroundColor: "rgb(145, 208, 91)"
+  },
+  content: {
+    width: "100%",
+    backgroundColor: "white",
+    padding: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    alignItems: "center"
   }
 };
 
