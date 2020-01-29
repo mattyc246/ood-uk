@@ -1,17 +1,7 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Container,
-  Content,
-  Thumbnail,
-  Card,
-  H1,
-  Button
-} from "native-base";
+import { Text, Container, Content, Thumbnail, Button } from "native-base";
 import MainHeader from "../components/MainHeader";
 import { productCategories } from "../constants/Categories";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 const CategoriesScreen = ({ navigation }) => {
   return (
