@@ -3,7 +3,6 @@ import { Container, Content, Text, Button, View, H1, H3 } from "native-base";
 import { observer } from "mobx-react";
 import useStores from "../hooks/useStores";
 import { menuButtons } from "../constants/MenuButtons";
-s;
 
 const DrawerContent = ({ navigation }) => {
   const { currentUser } = useStores();

@@ -4,7 +4,7 @@ const menuButtons = [
     text: "Home"
   },
   {
-    screen: "ProductScreen",
+    screen: "CategoriesScreen",
     text: "Products"
   },
   {

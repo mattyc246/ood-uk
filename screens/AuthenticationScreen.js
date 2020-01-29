@@ -12,7 +12,6 @@ const AuthenticationScreen = ({ navigation }) => {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const loginUser = (username, password) => {
-    // console.log(currentUser.logInUser());
     currentUser.logInUser(username, password);
   };
 

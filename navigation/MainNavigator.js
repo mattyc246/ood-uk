@@ -14,7 +14,11 @@ const MainNavigator = createDrawerNavigator(
         <HomeScreen {...screenProps} navigation={navigation} />
       )
     },
-    CategoriesScreen: CategoriesScreen,
+    CategoriesScreen: {
+      screen: ({ screenProps, navigation }) => (
+        <CategoriesScreen {...screenProps} navigation={navigation} />
+      )
+    },
     OrderScreen: OrderView,
     ShoppingCartScreen: CartScreen
   },
